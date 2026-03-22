@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Save Moore | Leave a Review</title>
+  <title>Save Moore | Login</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -14,31 +14,27 @@
         <li><a href="home.html">Home</a></li>
         <li><a href="current-sales.html">Current Sales</a></li>
         <li><a href="contact.html">Contact Us</a></li>
-        <li><a class="active" href="review.html">Leave a Review</a></li>
-        <li><a href="login.html">Login</a></li>
+        <li><a href="review.html">Leave a Review</a></li>
+        <li><a class="active" href="login.html">Login</a></li>
       </ul>
     </nav>
 
     <main class="content">
       <section class="section-card">
-        <h1>Leave a Review</h1>
-        <p class="subtitle">Your feedback helps us maintain a trusted, elegant marketplace.</p>
+        <h1>User Login</h1>
+        <p class="subtitle">Sign in to manage your sales posts and account details.</p>
         <form>
           <div class="form-grid">
             <div>
-              <label for="reviewer-name">Your Name</label>
-              <input id="reviewer-name" name="reviewer-name" type="text" placeholder="Full name" required />
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
             </div>
             <div>
-              <label for="rating">Rating (1-5)</label>
-              <input id="rating" name="rating" type="number" min="1" max="5" placeholder="5" required />
+              <label for="password">Password</label>
+              <input id="password" name="password" type="password" placeholder="Enter password" required />
             </div>
           </div>
-          <div>
-            <label for="review-message">Your Review</label>
-            <textarea id="review-message" name="review-message" placeholder="Share your experience..." required></textarea>
-          </div>
-          <button type="submit">Submit Review</button>
+          <button type="submit">Login</button>
         </form>
       </section>
 
