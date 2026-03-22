@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Save Moore | Home</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="auth.js"></script>
+  <script>requireAuth();</script>
 </head>
 <body>
   <div class="site-shell">
@@ -15,21 +17,40 @@
         <li><a href="current-sales.html">Current Sales</a></li>
         <li><a href="contact.html">Contact Us</a></li>
         <li><a href="review.html">Leave a Review</a></li>
-        <li><a href="login.html">Login</a></li>
+        <li><a href="#" id="nav-logout">Logout</a></li>
       </ul>
     </nav>
 
     <main class="content">
       <section class="section-card">
         <h1>Welcome to Save Moore</h1>
-        <p class="subtitle">An elegant marketplace for sellers and buyers to connect with confidence.</p>
+        <p id="seller-badge" style="display:none;color:var(--burgundy-soft);font-size:0.91rem;border:1px solid rgba(124,34,51,0.4);padding:0.45rem 0.8rem;border-radius:6px;margin-bottom:0.75rem;">You are logged in as the <strong>Seller</strong>. Head to Current Listings to manage your posts.</p>
+        <p class="subtitle">Your neighborhood source for quality pre-loved items from one trusted local seller.</p>
         <p>
-          Explore current sales, contact our team, or leave a review. Use the Login page to access your account.
+          Browse current listings, send us a message, or leave a review after your purchase.
+          Everything is priced to sell &mdash; come find your next great find.
         </p>
       </section>
 
       <p class="footer-note">Save Moore — Curated sales with timeless style.</p>
     </main>
   </div>
+
+  <script>
+    document.getElementById('nav-logout').addEventListener('click', function (e) {
+      e.preventDefault();
+      logout();
+    });
+    var _sess = getSession();
+    if (_sess && _sess.name) {
+      var _span = document.createElement('span');
+      _span.style.cssText = 'color:var(--text-muted);font-size:0.84rem;margin-left:0.7rem;font-family:Georgia,serif;';
+      _span.textContent = '— ' + _sess.name;
+      document.querySelector('.brand').appendChild(_span);
+    }
+      if (isSeller()) {
+        document.getElementById('seller-badge').style.display = 'block';
+      }
+  </script>
 </body>
 </html>

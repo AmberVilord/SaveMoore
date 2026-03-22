@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Save Moore | Current Sales</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="auth.js"></script>
+  <script>requireAuth();</script>
 </head>
 <body>
   <div class="site-shell">
@@ -15,14 +17,14 @@
         <li><a class="active" href="current-sales.html">Current Sales</a></li>
         <li><a href="contact.html">Contact Us</a></li>
         <li><a href="review.html">Leave a Review</a></li>
-        <li><a href="login.html">Login</a></li>
+        <li><a href="#" id="nav-logout">Logout</a></li>
       </ul>
     </nav>
 
     <main class="content">
       <section class="section-card">
         <h1>Current Sales</h1>
-        <p class="subtitle">Browse featured items and create your own sales post below.</p>
+        <p class="subtitle">Browse available items from Save Moore's current yard sale.</p>
 
         <div class="sales-grid" aria-label="Featured sales listings">
           <article class="sale-item">
@@ -44,7 +46,8 @@
       </section>
 
       <section class="section-card">
-        <h2>Create Sales Post</h2>
+      <section class="section-card seller-only" id="seller-post-section">
+        <h2>Add a New Listing</h2>
         <form>
           <div class="form-grid">
             <div>
@@ -74,5 +77,22 @@
       <p class="footer-note">Save Moore — Curated sales with timeless style.</p>
     </main>
   </div>
+
+  <script>
+    document.getElementById('nav-logout').addEventListener('click', function (e) {
+      e.preventDefault();
+      logout();
+    });
+    var _sess = getSession();
+    if (_sess && _sess.name) {
+      var _span = document.createElement('span');
+      _span.style.cssText = 'color:var(--text-muted);font-size:0.84rem;margin-left:0.7rem;font-family:Georgia,serif;';
+      _span.textContent = '— ' + _sess.name;
+      document.querySelector('.brand').appendChild(_span);
+    }
+      if (isSeller()) {
+        document.getElementById('seller-post-section').style.display = '';
+      }
+  </script>
 </body>
 </html>

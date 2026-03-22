@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Save Moore | Contact Us</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="auth.js"></script>
+  <script>requireAuth();</script>
 </head>
 <body>
   <div class="site-shell">
@@ -15,7 +17,7 @@
         <li><a href="current-sales.html">Current Sales</a></li>
         <li><a class="active" href="contact.html">Contact Us</a></li>
         <li><a href="review.html">Leave a Review</a></li>
-        <li><a href="login.html">Login</a></li>
+        <li><a href="#" id="nav-logout">Logout</a></li>
       </ul>
     </nav>
 
@@ -54,5 +56,19 @@
       <p class="footer-note">Save Moore — Curated sales with timeless style.</p>
     </main>
   </div>
+
+  <script>
+    document.getElementById('nav-logout').addEventListener('click', function (e) {
+      e.preventDefault();
+      logout();
+    });
+    var _sess = getSession();
+    if (_sess && _sess.name) {
+      var _span = document.createElement('span');
+      _span.style.cssText = 'color:var(--text-muted);font-size:0.84rem;margin-left:0.7rem;font-family:Georgia,serif;';
+      _span.textContent = '— ' + _sess.name;
+      document.querySelector('.brand').appendChild(_span);
+    }
+  </script>
 </body>
 </html>

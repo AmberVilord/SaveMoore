@@ -5,16 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Save Moore | Login</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="auth.js"></script>
+  <script>if (isLoggedIn()) window.location.href = 'home.html';</script>
 </head>
 <body>
   <div class="site-shell">
     <nav class="top-nav" aria-label="Main navigation">
       <p class="brand">Save Moore</p>
       <ul class="nav-links">
-        <li><a href="home.html">Home</a></li>
-        <li><a href="current-sales.html">Current Sales</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-        <li><a href="review.html">Leave a Review</a></li>
+        <li><a href="register.html">Register</a></li>
         <li><a class="active" href="login.html">Login</a></li>
       </ul>
     </nav>
@@ -22,8 +21,9 @@
     <main class="content">
       <section class="section-card">
         <h1>User Login</h1>
-        <p class="subtitle">Sign in to manage your sales posts and account details.</p>
-        <form>
+        <p class="subtitle">Sign in to browse listings and connect with the seller.</p>
+        <p id="login-error" style="color:#e57373;margin-bottom:0.5rem;display:none;"></p>
+        <form id="login-form">
           <div class="form-grid">
             <div>
               <label for="email">Email</label>
@@ -36,10 +36,32 @@
           </div>
           <button type="submit">Login</button>
         </form>
+        <p style="margin-top:1rem;color:var(--text-muted);font-size:0.93rem;">
+          Don't have an account?
+          <a href="register.html" style="color:var(--blue-soft);text-decoration:none;">Register here</a>
+        </p>
       </section>
 
       <p class="footer-note">Save Moore — Curated sales with timeless style.</p>
     </main>
   </div>
+
+  <script>
+    document.getElementById('login-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      var email    = document.getElementById('email').value.trim();
+      var password = document.getElementById('password').value;
+      var errorEl  = document.getElementById('login-error');
+      errorEl.style.display = 'none';
+
+      var result = await loginUser(email, password);
+      if (result.success) {
+        window.location.href = 'home.html';
+      } else {
+        errorEl.textContent   = result.message;
+        errorEl.style.display = 'block';
+      }
+    });
+  </script>
 </body>
 </html>

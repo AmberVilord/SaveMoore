@@ -1,48 +1,64 @@
+/* ─────────────────────────────────────────────────────────────
+   Save Moore — Color Palette
+   Black · White · Grey · Blue · Burgundy
+───────────────────────────────────────────────────────────── */
 :root {
-  --panel: rgba(12, 15, 24, 0.82);
-  --panel-soft: rgba(255, 255, 255, 0.04);
-  --text-main: #f4f1e8;
-  --text-muted: #c8c1ae;
-  --gold: #d4af37;
-  --gold-soft: #e8cf7a;
+  --bg:              #07080b;
+  --panel:           rgba(13, 14, 19, 0.94);
+  --panel-soft:      rgba(255, 255, 255, 0.03);
+  --text-main:       #f0eeea;
+  --text-muted:      #8e8ea8;
+  --white:           #f5f4f2;
+  --grey:            #3c3c48;
+  --grey-light:      #6a6a80;
+  --burgundy:        #7c2233;
+  --burgundy-soft:   #a33348;
+  --burgundy-faint:  rgba(124, 34, 51, 0.20);
+  --blue:            #264f8c;
+  --blue-soft:       #3568b4;
+  --blue-faint:      rgba(38, 79, 140, 0.18);
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html,
-body {
+html, body {
   margin: 0;
   padding: 0;
   font-family: "Georgia", "Times New Roman", serif;
   color: var(--text-main);
-  background: radial-gradient(circle at 20% 20%, #2b3245 0%, #161a25 42%, #0f1118 100%);
+  background:
+    radial-gradient(ellipse at 5%  5%,  #1a0c12 0%, transparent 55%),
+    radial-gradient(ellipse at 95% 95%, #0c1425 0%, transparent 55%),
+    var(--bg);
   min-height: 100%;
 }
 
 body {
-  line-height: 1.6;
+  line-height: 1.65;
   padding: 0 2in;
 }
 
+/* ── Shell (gold-trimmed box — now burgundy-trimmed) ─────────── */
 .site-shell {
   max-width: 1100px;
   margin: 1.25rem auto 2.5rem;
   background: var(--panel);
-  border: 2px solid var(--gold);
+  border: 2px solid var(--burgundy);
   border-radius: 14px;
-  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.25), 0 14px 34px rgba(0, 0, 0, 0.45);
+  box-shadow:
+    0 0 0 1px rgba(124, 34, 51, 0.30),
+    0 18px 48px rgba(0, 0, 0, 0.65);
   overflow: hidden;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(4px);
 }
 
+/* ── Navigation ─────────────────────────────────────────────── */
 .top-nav {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: linear-gradient(90deg, rgba(10, 12, 18, 0.98), rgba(26, 30, 41, 0.96));
-  border-bottom: 1px solid rgba(212, 175, 55, 0.5);
+  background: linear-gradient(90deg, rgba(6,6,9,0.98), rgba(14,14,22,0.97));
+  border-bottom: 1px solid rgba(124, 34, 51, 0.50);
   padding: 0.85rem 1.2rem;
   display: flex;
   align-items: center;
@@ -52,10 +68,10 @@ body {
 }
 
 .brand {
-  font-size: 1.25rem;
-  letter-spacing: 0.08em;
+  font-size: 1.22rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--gold-soft);
+  color: var(--white);
   margin: 0;
   white-space: nowrap;
 }
@@ -63,7 +79,7 @@ body {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 0.85rem;
+  gap: 0.7rem;
   padding: 0;
   margin: 0;
   flex-wrap: wrap;
@@ -71,23 +87,24 @@ body {
 
 .nav-links a {
   text-decoration: none;
-  color: var(--text-main);
-  padding: 0.45rem 0.75rem;
+  color: var(--text-muted);
+  padding: 0.42rem 0.72rem;
   border: 1px solid transparent;
   border-radius: 999px;
-  font-size: 0.94rem;
+  font-size: 0.92rem;
   transition: all 0.2s ease;
 }
 
 .nav-links a:hover,
 .nav-links a:focus-visible,
 .nav-links a.active {
-  border-color: var(--gold);
-  color: var(--gold-soft);
+  border-color: var(--blue-soft);
+  color: var(--white);
   outline: none;
-  background: rgba(212, 175, 55, 0.09);
+  background: var(--blue-faint);
 }
 
+/* ── Content area ────────────────────────────────────────────── */
 .content {
   padding: 1.6rem;
   display: grid;
@@ -96,24 +113,22 @@ body {
 
 .section-card {
   background: var(--panel-soft);
-  border: 1px solid rgba(212, 175, 55, 0.38);
+  border: 1px solid rgba(124, 34, 51, 0.32);
   border-radius: 10px;
-  padding: 1.15rem;
+  padding: 1.2rem;
 }
 
-h1,
-h2,
-h3 {
+/* ── Typography ─────────────────────────────────────────────── */
+h1, h2, h3 {
   margin-top: 0;
   line-height: 1.2;
-  color: var(--gold-soft);
+  color: var(--white);
   font-weight: 500;
 }
 
-h1 {
-  font-size: clamp(1.85rem, 3vw, 2.35rem);
-  margin-bottom: 0.4rem;
-}
+h1 { font-size: clamp(1.85rem, 3vw, 2.35rem); margin-bottom: 0.4rem; }
+h2 { font-size: 1.45rem; }
+h3 { font-size: 1.08rem; }
 
 .subtitle {
   margin-top: 0;
@@ -122,31 +137,36 @@ h1 {
   font-size: 1.02rem;
 }
 
+/* ── Listings grid ───────────────────────────────────────────── */
 .sales-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
   gap: 0.95rem;
   margin-top: 0.85rem;
 }
 
 .sale-item {
-  border: 1px solid rgba(212, 175, 55, 0.25);
+  border: 1px solid rgba(38, 79, 140, 0.28);
   border-radius: 8px;
-  padding: 0.85rem;
-  background: rgba(255, 255, 255, 0.02);
+  padding: 0.9rem;
+  background: rgba(255, 255, 255, 0.025);
+  transition: border-color 0.2s ease;
 }
 
-.sale-item h3 {
-  margin-bottom: 0.35rem;
-  font-size: 1.05rem;
+.sale-item:hover {
+  border-color: var(--blue-soft);
 }
+
+.sale-item h3 { margin-bottom: 0.3rem; }
 
 .price {
-  color: var(--gold-soft);
+  color: var(--burgundy-soft);
   font-weight: 700;
+  font-size: 1.05rem;
   margin: 0.25rem 0;
 }
 
+/* ── Forms ───────────────────────────────────────────────────── */
 form {
   display: grid;
   gap: 0.85rem;
@@ -163,7 +183,7 @@ label {
   display: block;
   margin-bottom: 0.3rem;
   color: var(--text-muted);
-  font-size: 0.95rem;
+  font-size: 0.94rem;
 }
 
 input,
@@ -171,16 +191,23 @@ textarea,
 button {
   width: 100%;
   border-radius: 7px;
-  border: 1px solid rgba(212, 175, 55, 0.4);
-  background: rgba(3, 5, 12, 0.65);
+  border: 1px solid rgba(124, 34, 51, 0.40);
+  background: rgba(4, 4, 8, 0.72);
   color: var(--text-main);
   font: inherit;
   padding: 0.62rem 0.7rem;
 }
 
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--blue-soft);
+  box-shadow: 0 0 0 2px var(--blue-faint);
+}
+
 input::file-selector-button {
-  border: 1px solid rgba(212, 175, 55, 0.55);
-  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid var(--burgundy);
+  background: var(--burgundy-faint);
   color: var(--text-main);
   border-radius: 6px;
   padding: 0.35rem 0.6rem;
@@ -197,39 +224,44 @@ button {
   width: fit-content;
   min-width: 180px;
   cursor: pointer;
-  background: linear-gradient(180deg, rgba(212, 175, 55, 0.27), rgba(212, 175, 55, 0.14));
-  border-color: rgba(212, 175, 55, 0.85);
+  background: linear-gradient(180deg, var(--burgundy-soft), var(--burgundy));
+  border-color: var(--burgundy-soft);
+  color: var(--white);
   font-weight: 600;
-  transition: filter 0.2s ease;
+  letter-spacing: 0.03em;
+  transition: filter 0.2s ease, transform 0.15s ease;
 }
 
 button:hover,
 button:focus-visible {
-  filter: brightness(1.1);
+  filter: brightness(1.15);
+  transform: translateY(-1px);
   outline: none;
 }
 
+/* ── Misc ────────────────────────────────────────────────────── */
 .contact-list {
   margin: 0;
   padding-left: 1.2rem;
   color: var(--text-muted);
 }
 
+.contact-list li { margin-bottom: 0.4rem; }
+
 .footer-note {
-  border-top: 1px solid rgba(212, 175, 55, 0.35);
+  border-top: 1px solid rgba(124, 34, 51, 0.28);
   margin-top: 0.4rem;
   padding-top: 1rem;
-  color: var(--text-muted);
-  font-size: 0.95rem;
+  color: var(--grey-light);
+  font-size: 0.92rem;
   text-align: center;
+  letter-spacing: 0.04em;
 }
 
-@media (max-width: 1050px) {
-  body {
-    padding: 0 1rem;
-  }
-}
+/* ── Seller-only blocks (hidden by default; JS reveals for seller) ── */
+.seller-only { display: none; }
 
+/* ── Intro / Splash page ─────────────────────────────────────── */
 .intro-page {
   min-height: 100vh;
   display: grid;
@@ -240,50 +272,67 @@ button:focus-visible {
 
 .intro-shell {
   text-align: center;
-  padding: 2.5rem 2rem;
-  border: 2px solid rgba(212, 175, 55, 0.8);
+  padding: 3rem 2.8rem;
+  border: 2px solid var(--burgundy);
   border-radius: 14px;
-  background: rgba(10, 12, 20, 0.68);
-  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.35), 0 24px 60px rgba(0, 0, 0, 0.6);
+  background: rgba(8, 7, 10, 0.78);
+  box-shadow:
+    0 0 0 1px rgba(124, 34, 51, 0.38),
+    0 30px 80px rgba(0, 0, 0, 0.75);
   transform: scale(1);
   transition: transform 1.2s ease, opacity 1.2s ease, filter 1.2s ease;
 }
 
 .intro-title {
-  margin: 0;
-  font-size: clamp(2.2rem, 5vw, 4rem);
+  margin: 0 0 0.2rem;
+  font-size: clamp(2.6rem, 6vw, 4.4rem);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--gold-soft);
-  text-shadow: 0 0 14px rgba(212, 175, 55, 0.35);
+  color: var(--white);
+  text-shadow: 0 2px 24px rgba(124, 34, 51, 0.55);
+}
+
+.intro-tagline {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
 }
 
 .intro-login-link {
   display: inline-block;
-  margin-top: 1.4rem;
-  padding: 0.6rem 1.2rem;
-  border: 1px solid var(--gold);
+  padding: 0.68rem 1.5rem;
+  border: 1px solid var(--burgundy-soft);
   border-radius: 999px;
   text-decoration: none;
-  color: var(--text-main);
-  background: rgba(212, 175, 55, 0.12);
-  font-size: 1.02rem;
+  color: var(--white);
+  background: linear-gradient(180deg, var(--burgundy-soft), var(--burgundy));
+  font-size: 1rem;
+  letter-spacing: 0.06em;
   transition: transform 0.2s ease, filter 0.2s ease;
 }
 
 .intro-login-link:hover,
 .intro-login-link:focus-visible {
   transform: translateY(-2px);
-  filter: brightness(1.12);
+  filter: brightness(1.15);
   outline: none;
 }
 
+/* ── Transition overlay ─────────────────────────────────────── */
 .screen-flash {
   position: fixed;
   inset: 0;
   pointer-events: none;
   opacity: 0;
-  background: radial-gradient(circle, rgba(232, 207, 122, 0.68) 0%, rgba(10, 10, 18, 0.95) 55%, rgba(0, 0, 0, 1) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(124, 34, 51, 0.65) 0%,
+    rgba(8, 6, 12, 0.95) 55%,
+    #000 100%
+  );
   transform: scale(1);
   transition: opacity 1.2s ease, transform 1.2s ease;
 }
@@ -296,5 +345,10 @@ button:focus-visible {
 
 .intro-page.transitioning .screen-flash {
   opacity: 1;
-  transform: scale(1.35);
+  transform: scale(1.4);
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 1050px) {
+  body { padding: 0 1rem; }
 }
