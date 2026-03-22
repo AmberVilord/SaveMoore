@@ -9,6 +9,10 @@
   <script>requireAuth();</script>
 </head>
 <body>
+  <video class="video-js vjs-default-skin vjs-big-play-centered player_895361399-dimensions vjs-controls-enabled vjs-workinghover vjs-v7 vjs-has-started vjs-paused vjs-ended vjs-user-active" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+    <source src="background.mp4" type="video/mp4" />
+  </video>
+
   <div class="site-shell">
     <nav class="top-nav" aria-label="Main navigation">
       <p class="brand">Save Moore</p>
@@ -53,13 +57,6 @@
       e.preventDefault();
       logout();
     });
-    var _sess = getSession();
-    if (_sess && _sess.name) {
-      var _span = document.createElement('span');
-      _span.style.cssText = 'color:var(--text-muted);font-size:0.84rem;margin-left:0.7rem;font-family:Georgia,serif;';
-      _span.textContent = '— ' + _sess.name;
-      document.querySelector('.brand').appendChild(_span);
-    }
   </script>
 </body>
 </html>

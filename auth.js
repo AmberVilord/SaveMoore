@@ -33,6 +33,14 @@ function smSaveUsers(users) {
   localStorage.setItem(SM_USERS_KEY, JSON.stringify(users));
 }
 
+function smDisplayName(name) {
+  var clean = (name || '').trim();
+  if (/^amber\s+vilord$/i.test(clean)) {
+    return 'Becky Moore';
+  }
+  return clean;
+}
+
 // ── Public API ──────────────────────────────────────────────
 
 /**
@@ -75,7 +83,7 @@ async function loginUser(email, password) {
   });
   if (user) {
     sessionStorage.setItem(SM_SESSION_KEY, JSON.stringify({
-      name: user.name,
+      name: smDisplayName(user.name),
       email: user.email,
       role: user.role || 'buyer'
     }));
@@ -94,7 +102,12 @@ function isLoggedIn() {
 
 /** Returns the session object { name, email, role } or null. */
 function getSession() {
-  try { return JSON.parse(sessionStorage.getItem(SM_SESSION_KEY)); }
+  try {
+    var session = JSON.parse(sessionStorage.getItem(SM_SESSION_KEY));
+    if (!session) return null;
+    session.name = smDisplayName(session.name);
+    return session;
+  }
   catch (e) { return null; }
 }
 
