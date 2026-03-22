@@ -1,6 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Save Moore | Intro</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="intro-page">
+	<div class="intro-shell">
+		<h1 class="intro-title">Save Moore With Us</h1>
+		<a class="intro-login-link" id="intro-login" href="home.html">Login</a>
+  </div>
+
+	<div class="screen-flash" aria-hidden="true"></div>
+
+	<script>
+		const loginLink = document.getElementById("intro-login");
+
+		loginLink.addEventListener("click", function (event) {
+			event.preventDefault();
+			document.body.classList.add("transitioning");
+
+			setTimeout(function () {
+				window.location.href = "home.html";
+			}, 1300);
+		});
+	</script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Save Moore | Sales Page</title>

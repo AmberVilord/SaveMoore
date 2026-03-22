@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Save Moore | Leave a Review</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <nav class="top-nav" aria-label="Main navigation">
+      <p class="brand">Save Moore</p>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="current-sales.html">Current Sales</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a class="active" href="review.html">Leave a Review</a></li>
+      </ul>
+    </nav>
+
+    <main class="content">
+      <section class="section-card">
+        <h1>Leave a Review</h1>
+        <p class="subtitle">Your feedback helps us maintain a trusted, elegant marketplace.</p>
+        <form>
+          <div class="form-grid">
+            <div>
+              <label for="reviewer-name">Your Name</label>
+              <input id="reviewer-name" name="reviewer-name" type="text" placeholder="Full name" required />
+            </div>
+            <div>
+              <label for="rating">Rating (1-5)</label>
+              <input id="rating" name="rating" type="number" min="1" max="5" placeholder="5" required />
+            </div>
+          </div>
+          <div>
+            <label for="review-message">Your Review</label>
+            <textarea id="review-message" name="review-message" placeholder="Share your experience..." required></textarea>
+          </div>
+          <button type="submit">Submit Review</button>
+        </form>
+      </section>
+
+      <p class="footer-note">Save Moore — Curated sales with timeless style.</p>
+    </main>
+  </div>
+</body>
+</html>

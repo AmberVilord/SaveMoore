@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Save Moore | Current Sales</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <nav class="top-nav" aria-label="Main navigation">
+      <p class="brand">Save Moore</p>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a class="active" href="current-sales.html">Current Sales</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="review.html">Leave a Review</a></li>
+      </ul>
+    </nav>
+
+    <main class="content">
+      <section class="section-card">
+        <h1>Current Sales</h1>
+        <p class="subtitle">Browse featured items and create your own sales post below.</p>
+
+        <div class="sales-grid" aria-label="Featured sales listings">
+          <article class="sale-item">
+            <h3>Vintage Accent Chair</h3>
+            <p class="price">$175</p>
+            <p>Elegant, restored wood frame with fresh upholstery.</p>
+          </article>
+          <article class="sale-item">
+            <h3>Designer Floor Lamp</h3>
+            <p class="price">$95</p>
+            <p>Brushed finish and warm glow, perfect for modern spaces.</p>
+          </article>
+          <article class="sale-item">
+            <h3>Solid Oak Writing Desk</h3>
+            <p class="price">$260</p>
+            <p>Beautiful grain, sturdy design, and generous workspace.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-card">
+        <h2>Seller Login &amp; Create Sales Post</h2>
+        <form>
+          <div class="form-grid">
+            <div>
+              <label for="seller-email">Email</label>
+              <input id="seller-email" name="seller-email" type="email" placeholder="seller@email.com" required />
+            </div>
+            <div>
+              <label for="seller-password">Password</label>
+              <input id="seller-password" name="seller-password" type="password" placeholder="Enter password" required />
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div>
+              <label for="title">Post Title</label>
+              <input id="title" name="title" type="text" placeholder="Item title" required />
+            </div>
+            <div>
+              <label for="price">Price</label>
+              <input id="price" name="price" type="text" placeholder="$0.00" required />
+            </div>
+          </div>
+
+          <div>
+            <label for="photos">Upload Photos</label>
+            <input id="photos" name="photos" type="file" accept="image/*" multiple required />
+          </div>
+
+          <div>
+            <label for="description">Item Description</label>
+            <textarea id="description" name="description" placeholder="Describe your item in detail..." required></textarea>
+          </div>
+
+          <button type="submit">Publish Sales Post</button>
+        </form>
+      </section>
+
+      <p class="footer-note">Save Moore — Curated sales with timeless style.</p>
+    </main>
+  </div>
+</body>
+</html>
